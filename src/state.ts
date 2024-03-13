@@ -9,3 +9,5 @@ export const currentCityAtom = atomWithStorage<Cities | typeof defaultCity>(
   'currentCity',
   defaultCity
 );
+
+export const cityHistoryAtom = atomWithStorage<Cities[]>('cityHistory', []);
