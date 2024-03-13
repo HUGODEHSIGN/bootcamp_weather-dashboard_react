@@ -8,7 +8,7 @@ import {
 } from '@/components/ui/select';
 import { useFetchCities } from '@/hooks/useFetchCities';
 import { cn } from '@/lib/utils';
-import { currentCityAtom } from '@/state';
+import { cityHistoryAtom, currentCityAtom } from '@/state';
 import { Cities } from '@/types';
 import { useDebounce } from '@uidotdev/usehooks';
 import { useAtom } from 'jotai';
@@ -22,6 +22,7 @@ export function CitySearchCombobox() {
   const [inputVal, setInputVal] = useState('');
   const debouncedInputVal = useDebounce(inputVal, 300);
   const [_currentCity, setCurrentCity] = useAtom(currentCityAtom);
+  const [cityHistory, setCityHistory] = useAtom(cityHistoryAtom);
   const { data } = useFetchCities(debouncedInputVal);
 
   return (
@@ -29,7 +30,11 @@ export function CitySearchCombobox() {
       <Select
         open={open}
         onOpenChange={() => setOpen(!open)}
-        onValueChange={(val) => setCurrentCity(JSON.parse(val))}>
+        onValueChange={(val) => {
+          setCurrentCity(JSON.parse(val));
+          setCityHistory((prev) => [JSON.parse(val), ...prev]);
+          cityHistory.length > 4 && setCityHistory((prev) => prev.slice(0, -1));
+        }}>
         <SelectTrigger className="w-[180px]">
           <SelectValue placeholder="Select a city" />
         </SelectTrigger>
