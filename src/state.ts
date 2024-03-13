@@ -1,8 +1,11 @@
 import { Cities } from '@/types';
-import { atom } from 'jotai';
+import { atomWithStorage } from 'jotai/utils';
 
 const defaultCity = {
   name: 'No City Selected',
 };
 
-export const currentCityAtom = atom<Cities | typeof defaultCity>(defaultCity);
+export const currentCityAtom = atomWithStorage<Cities | typeof defaultCity>(
+  'currentCity',
+  defaultCity
+);
