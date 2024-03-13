@@ -1,0 +1,26 @@
+import { cn } from '@/lib/utils';
+import { ReactElement } from 'react';
+
+export default function StatCard({
+  stat,
+  description,
+  icon,
+  className,
+}: {
+  stat: string;
+  description: string;
+  icon: ReactElement;
+  className?: string;
+}) {
+  return (
+    <div
+      className={cn(
+        'flex flex-col items-center bg-accent p-4 rounded-md min-w-40 text-center text-accent-foreground z-10',
+        className
+      )}>
+      <div className="p-4">{icon}</div>
+      <p className="text-3xl font-semibold">{stat}</p>
+      <p>{description}</p>
+    </div>
+  );
+}
