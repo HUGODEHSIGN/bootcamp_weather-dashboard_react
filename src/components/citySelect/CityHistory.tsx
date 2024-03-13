@@ -6,6 +6,11 @@ import { useAtom } from 'jotai';
 export default function CityHistory() {
   const [cityHistory, setCityHistory] = useAtom(cityHistoryAtom);
   const [currentCity, setCurrentCity] = useAtom(currentCityAtom);
+
+  function shortenString(str: string) {
+    return str.length > 16 ? str.slice(0, 16 - 1) + '...' : str;
+  }
+
   return (
     <Card>
       <CardHeader>
@@ -15,8 +20,11 @@ export default function CityHistory() {
         {cityHistory.map((city) => (
           <Button
             key={JSON.stringify(city)}
-            onClick={() => setCurrentCity(city)}>
-            {city.name} - {city.state}
+            onClick={() => {
+              setCurrentCity(city);
+            }}
+            variant="secondary">
+            {shortenString(`${city.name} ${city.state}`)}
           </Button>
         ))}
       </CardContent>

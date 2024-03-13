@@ -6,21 +6,21 @@ interface ColorLookup {
 }
 
 const colorLookup: ColorLookup = {
-  Thunderstorm: 'bg-amber-300 text-primary',
-  Drizzle: 'bg-cyan-300 text-primary',
-  Rain: 'bg-cyan-300 text-primary',
-  Snow: 'bg-sky-100 text-primary',
-  Mist: 'bg-sky-100 text-primary',
-  Smoke: 'bg-stone-500 text-primary-foreground',
-  Haze: 'bg-stone-500 text-primary-foreground',
-  Dust: 'bg-stone-500 text-primary-foreground',
-  Fog: 'bg-gray-100 text-primary',
-  Sand: 'bg-orange-50 text-primary',
-  Ash: 'bg-gray-100 text-primary',
-  Squall: 'bg-stone-700 text-primary-foreground',
-  Tornado: 'bg-stone-700 text-primary-foreground',
-  Clear: 'bg-sky-100 text-primary',
-  Clouds: 'bg-gray-100 text-primary',
+  Thunderstorm: 'bg-amber-300 text-black',
+  Drizzle: 'bg-cyan-300 text-black',
+  Rain: 'bg-cyan-300 text-black',
+  Snow: 'bg-sky-100 text-black',
+  Mist: 'bg-sky-100 text-black',
+  Smoke: 'bg-stone-500 text-white',
+  Haze: 'bg-stone-500 text-white',
+  Dust: 'bg-stone-500 text-white',
+  Fog: 'bg-gray-100 text-black',
+  Sand: 'bg-orange-50 text-black',
+  Ash: 'bg-gray-100 text-black',
+  Squall: 'bg-stone-700 text-white',
+  Tornado: 'bg-stone-700 text-white',
+  Clear: 'bg-sky-100 text-black',
+  Clouds: 'bg-gray-100 text-black',
 };
 
 export default function MainWeatherStatus({ data }: { data?: List }) {

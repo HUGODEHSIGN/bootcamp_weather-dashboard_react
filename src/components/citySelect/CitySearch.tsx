@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function CitySearch() {
   return (
-    <Card>
+    <Card className="bg-primary text-primary-foreground z-10">
       <CardHeader>
         <CardTitle>Search cities</CardTitle>
       </CardHeader>

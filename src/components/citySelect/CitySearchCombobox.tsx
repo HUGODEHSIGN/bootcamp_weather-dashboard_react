@@ -35,11 +35,11 @@ export function CitySearchCombobox() {
           setCityHistory((prev) => [JSON.parse(val), ...prev]);
           cityHistory.length > 4 && setCityHistory((prev) => prev.slice(0, -1));
         }}>
-        <SelectTrigger className="w-[180px]">
+        <SelectTrigger className="bg-primary text-primary-foreground">
           <SelectValue placeholder="Select a city" />
         </SelectTrigger>
 
-        <SelectContent>
+        <SelectContent className="bg-primary text-primary-foreground">
           <div
             className={cn(
               'p-2 py-0 ml-2 flex flex-row items-center gap-4',
@@ -50,7 +50,7 @@ export function CitySearchCombobox() {
               value={inputVal}
               onChange={(e) => setInputVal(e.target.value)}
               placeholder="Search"
-              className="p-0 border-none"
+              className="p-0 border-none bg-primary text-primary-foreground"
             />
           </div>
           {data &&
