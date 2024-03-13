@@ -66,26 +66,26 @@ export default function WeatherCurrent({ data }: { data?: List }) {
           {currentCity.name}
         </CardTitle>
       </CardHeader>
-      <CardContent className="flex flex-col gap-2 w-fit">
+      <CardContent className="flex flex-col gap-2 w-full">
         <MainWeatherStatus data={data} />
         <div className="flex flex-col lg:flex-row gap-2">
           <StatCard
             stat={`${data!.main.temp.toString()} °F`}
             description="Temperature"
             icon={<Thermometer className="w-20 h-20" />}
-            className="bg-gradient-to-br from-teal-200 to-orange-400 text-white opacity-9"
+            className="bg-gradient-to-br from-teal-200 to-orange-400 text-white opacity-9 flex-1"
           />
           <StatCard
             stat={`${data!.wind.speed.toString()} MPH`}
             description="Wind Speed"
             icon={<Wind className="w-20 h-20" />}
-            className="bg-gradient-to-br from-teal-200 to-lime-400 text-white opacity-95"
+            className="bg-gradient-to-br from-teal-200 to-lime-400 text-white opacity-95 flex-1"
           />
           <StatCard
             stat={`${data!.main.humidity.toString()}%`}
             description="Humidity"
             icon={<Droplets className="w-20 h-20" />}
-            className="bg-gradient-to-br from-cyan-200 to-blue-400 text-white opacity-95"
+            className="bg-gradient-to-br from-cyan-200 to-blue-400 text-white opacity-95 flex-1"
           />
         </div>
       </CardContent>

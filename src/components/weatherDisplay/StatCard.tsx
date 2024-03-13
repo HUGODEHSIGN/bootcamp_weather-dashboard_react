@@ -15,12 +15,14 @@ export default function StatCard({
   return (
     <div
       className={cn(
-        'flex flex-col items-center bg-accent p-4 rounded-md min-w-40 text-center text-accent-foreground z-10',
+        'flex flex-row lg:flex-col items-center bg-accent p-4 rounded-md min-w-40 text-center text-accent-foreground z-10',
         className
       )}>
       <div className="p-4">{icon}</div>
-      <p className="text-3xl font-semibold">{stat}</p>
-      <p>{description}</p>
+      <div>
+        <p className="text-3xl font-semibold">{stat}</p>
+        <p>{description}</p>
+      </div>
     </div>
   );
 }
