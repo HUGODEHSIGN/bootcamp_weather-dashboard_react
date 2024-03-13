@@ -5,18 +5,18 @@ import axios from 'axios';
 async function fetchWeather({
   queryKey,
 }: QueryFunctionContext<[string, string]>) {
-  console.log(queryKey);
-
-  if (JSON.parse(queryKey[1])!.name === '') {
+  if (JSON.parse(queryKey[1]).name === 'No City Selected') {
     return '';
   }
+
+  const { lat, lon } = JSON.parse(queryKey[1]);
 
   try {
     const res = await axios({
       method: 'get',
-      url: `http://api.openweathermap.org/geo/1.0/direct?q=${
-        queryKey[1]
-      }&limit=5&appid=${import.meta.env.VITE_OPENWEATHER}`,
+      url: `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${
+        import.meta.env.VITE_OPENWEATHER
+      }`,
     });
     return res.data;
   } catch (err) {
