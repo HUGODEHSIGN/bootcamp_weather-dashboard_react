@@ -1,10 +1,13 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { currentCityAtom } from '@/state';
+import { useAtom } from 'jotai';
 
 export default function WeatherCurrent() {
+  const [currentCity, _setCurrentCity] = useAtom(currentCityAtom);
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Atlanta (9/13/2022)</CardTitle>
+        <CardTitle>{currentCity.name}</CardTitle>
       </CardHeader>
       <CardContent>
         <p>temp</p>

@@ -1,0 +1,63 @@
+import { Input } from '@/components/ui/input';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import { useFetchCities } from '@/hooks/useFetchCities';
+import { cn } from '@/lib/utils';
+import { currentCityAtom } from '@/state';
+import { Cities } from '@/types';
+import { useDebounce } from '@uidotdev/usehooks';
+import { useAtom } from 'jotai';
+import { Search } from 'lucide-react';
+import { useState } from 'react';
+
+console.log(import.meta.env.VITE_OPENWEATHER);
+
+export function CitySearchCombobox() {
+  const [open, setOpen] = useState(false);
+  const [inputVal, setInputVal] = useState('');
+  const debouncedInputVal = useDebounce(inputVal, 300);
+  const [_currentCity, setCurrentCity] = useAtom(currentCityAtom);
+  const { data } = useFetchCities(debouncedInputVal);
+
+  return (
+    <div>
+      <Select
+        open={open}
+        onOpenChange={() => setOpen(!open)}
+        onValueChange={(val) => setCurrentCity(JSON.parse(val))}>
+        <SelectTrigger className="w-[180px]">
+          <SelectValue placeholder="Select a city" />
+        </SelectTrigger>
+
+        <SelectContent>
+          <div
+            className={cn(
+              'p-2 py-0 ml-2 flex flex-row items-center gap-4',
+              !data ? 'mb-0 border-none' : 'mb-1 border-b'
+            )}>
+            <Search className="w-4 h-4" />
+            <Input
+              value={inputVal}
+              onChange={(e) => setInputVal(e.target.value)}
+              placeholder="Search"
+              className="p-0 border-none"
+            />
+          </div>
+          {data &&
+            data.map((city: Cities) => (
+              <SelectItem
+                value={JSON.stringify(city)}
+                key={JSON.stringify(city)}>
+                {city.name + ' - ' + city.state}
+              </SelectItem>
+            ))}
+        </SelectContent>
+      </Select>
+    </div>
+  );
+}
