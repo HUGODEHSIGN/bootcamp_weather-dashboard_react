@@ -1,11 +1,12 @@
-import { Button } from '@/components/ui/button';
-import './App.css';
+import Dashboard from '@/components/Dashboard';
+import Header from '@/components/Header';
 
 function App() {
   return (
-    <>
-      <Button>test</Button>
-    </>
+    <div className="m-8 flex flex-col gap-8">
+      <Header />
+      <Dashboard />
+    </div>
   );
 }
 
