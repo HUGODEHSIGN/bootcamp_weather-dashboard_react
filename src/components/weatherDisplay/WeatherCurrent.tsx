@@ -1,3 +1,4 @@
+import { BackgroundBeams } from '@/components/ui/background-beams';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import MainWeatherStatus from '@/components/weatherDisplay/MainWeatherStatus';
 import StatCard from '@/components/weatherDisplay/StatCard';
@@ -92,6 +93,7 @@ export default function WeatherCurrent({ data }: { data?: List }) {
       <div className="text-primary-foreground opacity-50">
         {iconLookup[data!.weather[0].main]}
       </div>
+      <BackgroundBeams />
     </Card>
   );
 }
