@@ -26,20 +26,20 @@ export function CitySearchCombobox() {
   const { data } = useFetchCities(debouncedInputVal);
 
   return (
-    <div>
+    <div className="z-10">
       <Select
         open={open}
         onOpenChange={() => setOpen(!open)}
         onValueChange={(val) => {
           setCurrentCity(JSON.parse(val));
           setCityHistory((prev) => [JSON.parse(val), ...prev]);
-          cityHistory.length > 4 && setCityHistory((prev) => prev.slice(0, -1));
+          cityHistory.length > 9 && setCityHistory((prev) => prev.slice(0, -1));
         }}>
-        <SelectTrigger className="bg-primary text-primary-foreground">
+        <SelectTrigger>
           <SelectValue placeholder="Select a city" />
         </SelectTrigger>
 
-        <SelectContent className="bg-primary text-primary-foreground">
+        <SelectContent>
           <div
             className={cn(
               'p-2 py-0 ml-2 flex flex-row items-center gap-4',
@@ -50,7 +50,7 @@ export function CitySearchCombobox() {
               value={inputVal}
               onChange={(e) => setInputVal(e.target.value)}
               placeholder="Search"
-              className="p-0 border-none bg-primary text-primary-foreground"
+              className="p-0 border-none"
             />
           </div>
           {data &&

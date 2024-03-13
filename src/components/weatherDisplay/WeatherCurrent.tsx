@@ -73,7 +73,7 @@ export default function WeatherCurrent({ data }: { data?: List }) {
             stat={`${data!.main.temp.toString()} °F`}
             description="Temperature"
             icon={<Thermometer className="w-20 h-20" />}
-            className="bg-gradient-to-br from-teal-200 to-orange-400 text-white opacity-95"
+            className="bg-gradient-to-br from-teal-200 to-orange-400 text-white opacity-9"
           />
           <StatCard
             stat={`${data!.wind.speed.toString()} MPH`}
@@ -89,7 +89,7 @@ export default function WeatherCurrent({ data }: { data?: List }) {
           />
         </div>
       </CardContent>
-      <div className="text-primary-foreground">
+      <div className="text-primary-foreground opacity-50">
         {iconLookup[data!.weather[0].main]}
       </div>
     </Card>
