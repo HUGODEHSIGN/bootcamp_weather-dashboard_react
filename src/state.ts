@@ -1,4 +1,8 @@
+import { Cities } from '@/types';
 import { atom } from 'jotai';
 
-export const searchCityAtom = atom([]);
-export const currentCityAtom = atom({});
+const defaultCity = {
+  name: 'No City Selected',
+};
+
+export const currentCityAtom = atom<Cities | typeof defaultCity>(defaultCity);

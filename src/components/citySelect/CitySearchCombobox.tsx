@@ -1,5 +1,3 @@
-'use client';
-
 import { Input } from '@/components/ui/input';
 import {
   Select,
@@ -8,48 +6,40 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { useFetchCities } from '@/hooks/useFetchCities';
+import { cn } from '@/lib/utils';
+import { currentCityAtom } from '@/state';
+import { Cities } from '@/types';
+import { useDebounce } from '@uidotdev/usehooks';
+import { useAtom } from 'jotai';
 import { Search } from 'lucide-react';
 import { useState } from 'react';
 
-const frameworks = [
-  {
-    value: 'next.js',
-    label: 'Next.js',
-  },
-  {
-    value: 'sveltekit',
-    label: 'SvelteKit',
-  },
-  {
-    value: 'nuxt.js',
-    label: 'Nuxt.js',
-  },
-  {
-    value: 'remix',
-    label: 'Remix',
-  },
-  {
-    value: 'astro',
-    label: 'Astro',
-  },
-];
+console.log(import.meta.env.VITE_OPENWEATHER);
 
 export function CitySearchCombobox() {
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState('');
   const [inputVal, setInputVal] = useState('');
+  const debouncedInputVal = useDebounce(inputVal, 300);
+  const [_currentCity, setCurrentCity] = useAtom(currentCityAtom);
+  const { data } = useFetchCities(debouncedInputVal);
 
   return (
-    <div className="flex flex-col gap-2">
+    <div>
       <Select
         open={open}
-        onOpenChange={() => setOpen(!open)}>
+        onOpenChange={() => setOpen(!open)}
+        onValueChange={(val) => setCurrentCity(JSON.parse(val))}>
         <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder="Theme" />
+          <SelectValue placeholder="Select a city" />
         </SelectTrigger>
 
         <SelectContent>
-          <div className="p-2 py-0 mb-1 ml-2 flex flex-row items-center gap-4 border-b">
+          <div
+            className={cn(
+              'p-2 py-0 ml-2 flex flex-row items-center gap-4',
+              !data ? 'mb-0 border-none' : 'mb-1 border-b'
+            )}>
             <Search className="w-4 h-4" />
             <Input
               value={inputVal}
@@ -58,10 +48,14 @@ export function CitySearchCombobox() {
               className="p-0 border-none"
             />
           </div>
-
-          <SelectItem value="light">Light</SelectItem>
-          <SelectItem value="dark">Dark</SelectItem>
-          <SelectItem value="system">System</SelectItem>
+          {data &&
+            data.map((city: Cities) => (
+              <SelectItem
+                value={JSON.stringify(city)}
+                key={JSON.stringify(city)}>
+                {city.name + ' - ' + city.state}
+              </SelectItem>
+            ))}
         </SelectContent>
       </Select>
     </div>
