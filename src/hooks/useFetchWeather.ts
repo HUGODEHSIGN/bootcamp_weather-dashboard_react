@@ -14,7 +14,7 @@ async function fetchWeather({
   try {
     const res = await axios({
       method: 'get',
-      url: `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${
+      url: `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${
         import.meta.env.VITE_OPENWEATHER
       }`,
     });

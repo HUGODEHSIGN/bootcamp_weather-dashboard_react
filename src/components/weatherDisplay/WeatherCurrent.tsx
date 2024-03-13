@@ -59,7 +59,6 @@ const iconLookup: IconLookup = {
 export default function WeatherCurrent({ data }: { data?: List }) {
   const [currentCity, _setCurrentCity] = useAtom(currentCityAtom);
 
-  console.log(data!.weather[0]);
   return (
     <Card className="relative overflow-hidden bg-primary">
       <CardHeader>
