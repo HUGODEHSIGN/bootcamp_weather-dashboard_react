@@ -5,7 +5,7 @@ import { currentCityAtom } from '@/state';
 import { useAtom } from 'jotai';
 
 export default function WeatherDisplay() {
-  const [currentCity, setCurrentCity] = useAtom(currentCityAtom);
+  const [currentCity, _setCurrentCity] = useAtom(currentCityAtom);
   const { data } = useFetchWeather(currentCity);
 
   if (!data) {

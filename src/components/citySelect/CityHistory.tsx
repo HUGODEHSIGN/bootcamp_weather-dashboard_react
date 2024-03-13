@@ -3,10 +3,11 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { cityHistoryAtom, currentCityAtom } from '@/state';
 import { useAtom } from 'jotai';
 import { History } from 'lucide-react';
+import { nanoid } from 'nanoid';
 
 export default function CityHistory() {
-  const [cityHistory, setCityHistory] = useAtom(cityHistoryAtom);
-  const [currentCity, setCurrentCity] = useAtom(currentCityAtom);
+  const [cityHistory, _setCityHistory] = useAtom(cityHistoryAtom);
+  const [_currentCity, setCurrentCity] = useAtom(currentCityAtom);
 
   function shortenString(str: string) {
     return str.length > 16 ? str.slice(0, 16 - 1) + '...' : str;
@@ -20,7 +21,7 @@ export default function CityHistory() {
       <CardContent className="flex flex-col gap-2">
         {cityHistory.map((city) => (
           <Button
-            key={JSON.stringify(city)}
+            key={nanoid()}
             onClick={() => {
               setCurrentCity(city);
             }}

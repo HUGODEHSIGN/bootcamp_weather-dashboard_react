@@ -17,8 +17,6 @@ function shortenString(str: string) {
 }
 
 export default function WeatherCard({ data }: { data: List }) {
-  console.log(dayLookup[dayjs.unix(data.dt).day()]);
-
   return (
     <Card className="flex flex-row lg:flex-col flex-1">
       <CardHeader className="">

@@ -15,8 +15,6 @@ import { useAtom } from 'jotai';
 import { Search } from 'lucide-react';
 import { useState } from 'react';
 
-console.log(import.meta.env.VITE_OPENWEATHER);
-
 export function CitySearchCombobox() {
   const [open, setOpen] = useState(false);
   const [inputVal, setInputVal] = useState('');
