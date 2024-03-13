@@ -26,11 +26,6 @@ export default function WeatherWeekForecast({ data }: { data: List[] }) {
             key={JSON.stringify(dt)}
           />
         ))}
-        {/* <WeatherCard />
-        <WeatherCard />
-        <WeatherCard />
-        <WeatherCard />
-        <WeatherCard /> */}
       </div>
     </div>
   );
