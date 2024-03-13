@@ -24,6 +24,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "cmdk": "^1.0.0",
+    "dayjs": "^1.11.10",
     "jotai": "^2.7.0",
     "jotai-tanstack-query": "^0.8.5",
     "lucide-react": "^0.356.0",
