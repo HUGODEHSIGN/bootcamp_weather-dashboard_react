@@ -24,7 +24,7 @@ export default function CitySearchContent({
   isError,
 }: CitySearchContentProps) {
   return (
-    <SelectContent>
+    <SelectContent className='bg-inherit border-none backdrop-blur-md'>
       <div
         className={cn(
           'p-2 py-0 ml-2 flex flex-row items-center gap-4',
@@ -35,7 +35,7 @@ export default function CitySearchContent({
           value={inputVal}
           onChange={(e) => setInputVal(e.target.value)}
           placeholder="Search"
-          className="p-0 border-none"
+          className="p-0 border-none bg-inherit"
         />
       </div>
 
@@ -46,6 +46,7 @@ export default function CitySearchContent({
             key={nanoid()}
           />
         ))}
+         <div className='absolute left-0 top-0 right-0 bottom-0 bg-neutral-50 dark:bg-neutral-800 opacity-80 dark:opacity-90 -z-20'></div>
     </SelectContent>
   );
 }

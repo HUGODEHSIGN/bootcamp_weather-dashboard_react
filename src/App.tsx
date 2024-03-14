@@ -13,10 +13,12 @@ function App() {
       <ThemeProvider
         defaultTheme="dark"
         storageKey="vite-ui=theme">
-        <div className="m-8 flex flex-col gap-8">
+        
+        <div className="h-screen overflow-scroll p-8 flex flex-col gap-8 bg-gradient-to-br from-blue-400 to-fuchsia-600 dark:from-cyan-950 dark:to-fuchsia-950">
           <Header />
           <Dashboard />
         </div>
+    
       </ThemeProvider>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

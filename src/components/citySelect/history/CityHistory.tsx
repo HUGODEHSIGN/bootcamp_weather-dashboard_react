@@ -9,9 +9,9 @@ export default function CityHistory() {
   const [cityHistory, _setCityHistory] = useAtom(cityHistoryAtom);
 
   return (
-    <Card className="relative overflow-hidden">
+    <Card className="relative overflow-hidden backdrop-blur-3xl">
       <CardHeader>
-        <CardTitle>History</CardTitle>
+        <CardTitle className='z-10 text-center'>History</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-2">
         {cityHistory.map((city) => (
@@ -21,7 +21,8 @@ export default function CityHistory() {
           />
         ))}
       </CardContent>
-      <History className="absolute w-24 h-24 -top-6 -right-5 opacity-50" />
+      <History className="absolute w-24 h-24 -top-6 -right-5 opacity-50 z-10" />
+      <div className='absolute left-0 top-0 right-0 bottom-0 bg-neutral-50 dark:bg-neutral-900 opacity-60 dark:opacity-70'></div>
     </Card>
   );
 }

@@ -16,8 +16,9 @@ export default function CityHistoryButton({ city }: CityHistoryButtonProps) {
     <Button
       onClick={() => {
         setCurrentCity(city);
-      }}
-      variant="secondary">
+      }} variant='ghost'
+      className='z-10 hover:bg-neutral-50 dark:hover:bg-neutral-700 backdrop-blur-md bg-inherit'
+      >
       {shortenString(`${city.name} ${city.state}`, 16)}
     </Button>
   );
