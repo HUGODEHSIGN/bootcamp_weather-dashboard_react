@@ -1,17 +1,11 @@
-import { Button } from '@/components/ui/button';
+import CityHistoryButton from '@/components/citySelect/CityHistoryButton';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { cityHistoryAtom, currentCityAtom } from '@/state';
+import { cityHistoryAtom } from '@/state';
 import { useAtom } from 'jotai';
 import { History } from 'lucide-react';
-import { nanoid } from 'nanoid';
 
 export default function CityHistory() {
   const [cityHistory, _setCityHistory] = useAtom(cityHistoryAtom);
-  const [_currentCity, setCurrentCity] = useAtom(currentCityAtom);
-
-  function shortenString(str: string) {
-    return str.length > 16 ? str.slice(0, 16 - 1) + '...' : str;
-  }
 
   return (
     <Card className="relative overflow-hidden">
@@ -20,14 +14,7 @@ export default function CityHistory() {
       </CardHeader>
       <CardContent className="flex flex-col gap-2">
         {cityHistory.map((city) => (
-          <Button
-            key={nanoid()}
-            onClick={() => {
-              setCurrentCity(city);
-            }}
-            variant="secondary">
-            {shortenString(`${city.name} ${city.state}`)}
-          </Button>
+          <CityHistoryButton city={city} />
         ))}
       </CardContent>
       <History className="absolute w-24 h-24 -top-6 -right-5 opacity-50" />
