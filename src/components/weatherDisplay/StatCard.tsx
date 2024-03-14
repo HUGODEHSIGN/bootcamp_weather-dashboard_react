@@ -1,17 +1,19 @@
 import { cn } from '@/lib/utils';
 import { ReactElement } from 'react';
 
+interface StatCardProps {
+  stat: string;
+  description: string;
+  icon: ReactElement;
+  className: string;
+}
+
 export default function StatCard({
   stat,
   description,
   icon,
   className,
-}: {
-  stat: string;
-  description: string;
-  icon: ReactElement;
-  className?: string;
-}) {
+}: StatCardProps) {
   return (
     <div
       className={cn(

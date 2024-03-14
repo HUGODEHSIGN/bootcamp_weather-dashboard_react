@@ -2,21 +2,11 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { List } from '@/types';
 import dayjs from 'dayjs';
 
-const dayLookup = [
-  'Sunday',
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday',
-];
-
-function shortenString(str: string) {
-  return str.slice(0, 4 - 1);
+interface WeatherCardProps {
+  data: List;
 }
 
-export default function WeatherCard({ data }: { data: List }) {
+export default function WeatherCard({ data }: WeatherCardProps) {
   return (
     <Card className="flex flex-row lg:flex-col flex-1">
       <CardHeader className="">
@@ -30,9 +20,7 @@ export default function WeatherCard({ data }: { data: List }) {
           <p>{data.main.humidity}%</p>
         </div>
 
-        <p className="text-xl font-bold">
-          {shortenString(dayLookup[dayjs.unix(data.dt).day()])}
-        </p>
+        <p className="text-xl font-bold">{dayjs.unix(data.dt).format('ddd')}</p>
       </CardContent>
     </Card>
   );

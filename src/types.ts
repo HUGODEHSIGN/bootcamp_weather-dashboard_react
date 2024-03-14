@@ -1,6 +1,6 @@
-export type CitiesArray = Cities[];
+export type Cities = City[];
 
-export interface Cities {
+export interface City {
   name: string;
   local_names?: LocalNames;
   lat: number;
