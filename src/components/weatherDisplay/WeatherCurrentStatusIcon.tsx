@@ -10,7 +10,7 @@ export default function WeatherCurrentStatusIcon({
 }: WeatherCurrentStatusIconProps) {
   return (
     <div className="text-primary-foreground opacity-50">
-      {mainStatusIcon[data!.weather[0].main]}
+      {mainStatusIcon[data && data.weather[0].main]}
     </div>
   );
 }

@@ -2,7 +2,8 @@ import { List } from '@/types';
 import dayjs from 'dayjs';
 
 export default function weatherListGenerator(data: List[]) {
-  const filteredDates = [];
+  let filteredDates = [];
+
   let dayCounter = 0;
   for (let i = 0; i < data.length; i++) {
     if (
