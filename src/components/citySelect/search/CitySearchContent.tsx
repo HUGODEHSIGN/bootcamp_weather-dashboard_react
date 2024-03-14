@@ -1,4 +1,4 @@
-import CitySearchItem from '@/components/citySelect/elements/CitySearchItem';
+import CitySearchItem from '@/components/citySelect/search/CitySearchItem';
 import { Input } from '@/components/ui/input';
 import { SelectContent } from '@/components/ui/select';
 import { useFetchCities } from '@/hooks/useFetchCities';

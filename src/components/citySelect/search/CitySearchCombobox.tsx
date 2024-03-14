@@ -1,6 +1,6 @@
-import CitySearchContent from '@/components/citySelect/elements/CitySearchContent';
-import CitySearchTrigger from '@/components/citySelect/elements/CitySearchTrigger';
-import { useSetCity } from '@/components/citySelect/hooks/useSetCity';
+import useSetCity from '@/components/citySelect/hooks/useSetCity';
+import CitySearchContent from '@/components/citySelect/search/CitySearchContent';
+import CitySearchTrigger from '@/components/citySelect/search/CitySearchTrigger';
 import { Select } from '@/components/ui/select';
 import { useState } from 'react';
 

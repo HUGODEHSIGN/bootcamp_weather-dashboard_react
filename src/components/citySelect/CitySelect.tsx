@@ -1,5 +1,5 @@
-import CityHistory from '@/components/citySelect/CityHistory';
-import CitySearch from '@/components/citySelect/CitySearch';
+import CityHistory from '@/components/citySelect/history/CityHistory';
+import CitySearch from '@/components/citySelect/search/CitySearch';
 
 export default function CitySelect() {
   return (

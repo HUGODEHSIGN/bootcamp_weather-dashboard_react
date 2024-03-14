@@ -1,4 +1,4 @@
-import CityHistoryButton from '@/components/citySelect/elements/CityHistoryButton';
+import CityHistoryButton from '@/components/citySelect/history/CityHistoryButton';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { cityHistoryAtom } from '@/state';
 import { useAtom } from 'jotai';

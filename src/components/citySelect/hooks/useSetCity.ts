@@ -1,7 +1,7 @@
 import { cityHistoryAtom, currentCityAtom } from '@/state';
 import { useAtom } from 'jotai';
 
-export function useSetCity() {
+export default function useSetCity() {
   const [_currentCity, setCurrentCity] = useAtom(currentCityAtom);
   const [cityHistory, setCityHistory] = useAtom(cityHistoryAtom);
 
