@@ -10,7 +10,7 @@ export default function MainWeatherStatus({ data }: MainWeatherStatusProps) {
   return (
     <div
       className={cn(
-        'bg-primary text-primary-foreground p-4 rounded-md font-semibold z-10 opacity-95',
+        'bg-primary text-primary-foreground p-4 rounded-md text-4xl font-bold z-10 opacity-95',
         mainStatusColor[data.weather[0].main]
       )}>
       {data.weather[0].main}

@@ -4,16 +4,17 @@ import axios from 'axios';
 async function fetchCities({
   queryKey,
 }: QueryFunctionContext<[string, string | null | undefined]>) {
+  let citySearch = queryKey[1];
   if (queryKey[1] === '') {
-    return '';
+    citySearch = 'a';
   }
 
   try {
     const res = await axios({
       method: 'get',
-      url: `https://api.openweathermap.org/geo/1.0/direct?q=${
-        queryKey[1]
-      }&limit=5&appid=${import.meta.env.VITE_OPENWEATHER}`,
+      url: `https://api.openweathermap.org/geo/1.0/direct?q=${citySearch}&limit=5&appid=${
+        import.meta.env.VITE_OPENWEATHER
+      }`,
     });
     return res.data;
   } catch (err) {
