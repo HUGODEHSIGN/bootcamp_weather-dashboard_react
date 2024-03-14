@@ -1,15 +1,17 @@
-import { Cities } from '@/types';
+import { City } from '@/types';
 import { QueryFunctionContext, useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
 async function fetchWeather({
   queryKey,
-}: QueryFunctionContext<[string, string]>) {
-  if (JSON.parse(queryKey[1]).name === 'No City Selected') {
-    return '';
+}: QueryFunctionContext<[string, City | { name: string }]>) {
+  let lat = 40.6526006;
+  let lon = -73.9497211;
+  if (queryKey[1].name !== 'Brooklyn') {
+    const key = queryKey[1] as City;
+    lat = key.lat;
+    lon = key.lon;
   }
-
-  const { lat, lon } = JSON.parse(queryKey[1]);
 
   try {
     const res = await axios({
@@ -25,9 +27,9 @@ async function fetchWeather({
   }
 }
 
-export function useFetchWeather(city: Cities | { name: string }) {
+export function useFetchWeather(city: City | { name: string }) {
   const weather = useQuery({
-    queryKey: ['weather', JSON.stringify(city)],
+    queryKey: ['weather', city],
     queryFn: fetchWeather,
   });
   return weather;
