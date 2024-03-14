@@ -1,5 +1,3 @@
-import { mainStatusColor } from '@/components/weatherDisplay/lookupLists';
-import { cn } from '@/lib/utils';
 import { List } from '@/types';
 
 interface MainWeatherStatusProps {
@@ -9,11 +7,13 @@ interface MainWeatherStatusProps {
 export default function MainWeatherStatus({ data }: MainWeatherStatusProps) {
   return (
     <div
-      className={cn(
-        'bg-primary text-primary-foreground p-4 rounded-md text-4xl font-bold z-10 opacity-95',
-        mainStatusColor[data && data.weather[0].main]
-      )}>
+      className=
+        'relative overflow-hidden text-neutral-50 p-4 rounded-md text-4xl font-bold z-10 opacity-95'
+      >
       {data && data.weather[0].main}
+      <div className=
+        'absolute top-0 left-0 right-0 bottom-0 -z-10 bg-neutral-700 dark:bg-neutral-900 opacity-50'
+      ></div>
     </div>
   );
 }

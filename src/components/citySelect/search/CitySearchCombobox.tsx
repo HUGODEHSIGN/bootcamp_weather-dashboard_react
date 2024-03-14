@@ -15,13 +15,14 @@ export function CitySearchCombobox() {
     useFetchCities(debouncedInputVal);
 
   return (
-    <div className="z-10">
+    <div className="z-20">
       <Select
         open={open}
         onOpenChange={() => setOpen(!open)}
         onValueChange={(val) => {
           setNewCity(val);
-        }}>
+        }}
+        >
         <CitySearchTrigger
           isSuccess={isSuccess}
           isPending={isPending}
