@@ -7,9 +7,7 @@ interface CitySearchItemProps {
 
 export default function CitySearchItem({ city }: CitySearchItemProps) {
   return (
-    <SelectItem
-      value={JSON.stringify(city)}
-      key={JSON.stringify(city)}>
+    <SelectItem value={JSON.stringify(city)}>
       {city.name + ' - ' + city.state}
     </SelectItem>
   );

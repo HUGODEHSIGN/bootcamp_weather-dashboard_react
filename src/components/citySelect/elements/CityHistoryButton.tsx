@@ -3,7 +3,6 @@ import { shortenString } from '@/lib/shortenString';
 import { cityHistoryAtom, currentCityAtom } from '@/state';
 import { City } from '@/types';
 import { useAtom } from 'jotai';
-import { nanoid } from 'nanoid';
 
 interface CityHistoryButtonProps {
   city: City;
@@ -15,7 +14,6 @@ export default function CityHistoryButton({ city }: CityHistoryButtonProps) {
 
   return (
     <Button
-      key={nanoid()}
       onClick={() => {
         setCurrentCity(city);
       }}

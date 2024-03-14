@@ -1,4 +1,4 @@
-import { CitySearchCombobox } from '@/components/citySelect/CitySearchCombobox';
+import { CitySearchCombobox } from '@/components/citySelect/elements/CitySearchCombobox';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Search } from 'lucide-react';
 

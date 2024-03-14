@@ -1,4 +1,4 @@
-import CitySearchItem from '@/components/citySelect/CitySearchItem';
+import CitySearchItem from '@/components/citySelect/elements/CitySearchItem';
 import { Input } from '@/components/ui/input';
 import { SelectContent } from '@/components/ui/select';
 import { useFetchCities } from '@/hooks/useFetchCities';
@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import { City } from '@/types';
 import { useDebounce } from '@uidotdev/usehooks';
 import { Search } from 'lucide-react';
+import { nanoid } from 'nanoid';
 import { useState } from 'react';
 
 export default function CitySearchContent() {
@@ -28,7 +29,13 @@ export default function CitySearchContent() {
           className="p-0 border-none"
         />
       </div>
-      {data && data.map((city: City) => <CitySearchItem city={city} />)}
+      {data &&
+        data.map((city: City) => (
+          <CitySearchItem
+            city={city}
+            key={nanoid()}
+          />
+        ))}
     </SelectContent>
   );
 }
