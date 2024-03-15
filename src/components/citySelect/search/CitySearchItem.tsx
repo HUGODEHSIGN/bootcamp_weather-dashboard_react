@@ -9,7 +9,7 @@ export default function CitySearchItem({ city }: CitySearchItemProps) {
   return (
     <SelectItem
       value={JSON.stringify(city)}
-      className="hover:bg-neutral-50 dark:hover:bg-neutral-700"
+      className="w-fit hover:bg-neutral-50 dark:hover:bg-neutral-700"
     >
       {city.name + " - " + city.state}
     </SelectItem>

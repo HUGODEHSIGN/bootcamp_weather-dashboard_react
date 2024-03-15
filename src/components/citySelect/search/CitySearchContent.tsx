@@ -31,7 +31,7 @@ export const CitySearchContent = forwardRef<
   ref,
 ) {
   return (
-    <SelectContent className="w-[240px] border-none bg-inherit backdrop-blur-md">
+    <SelectContent className="relative border-none bg-inherit backdrop-blur-md">
       <div
         className={cn(
           "ml-2 flex flex-row items-center gap-4 p-2 py-0",
