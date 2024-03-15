@@ -1,4 +1,4 @@
-import { SelectTrigger, SelectValue } from '@/components/ui/select';
+import { SelectTrigger, SelectValue } from "@/components/ui/select";
 
 interface CitySearchTriggerProps {
   isSuccess: boolean;
@@ -12,14 +12,15 @@ export default function CitySearchTrigger({
   isError,
 }: CitySearchTriggerProps) {
   return (
-    <div className='relative rounded-md overflow-hidden backdrop-blur-md'>
-    <SelectTrigger className='bg-inherit border-none'>
-      {isPending && <div className='z-20'>Loading...</div>}
-      {isError && <div className="text-red-500">Error</div>}
-      {isSuccess && <SelectValue placeholder="Select a city" className='z-20'/>}
-     
-    </SelectTrigger>
-    <div className='absolute left-0 top-0 right-0 bottom-0 bg-neutral-50 dark:bg-neutral-800 opacity-80 dark:opacity-90 -z-10'></div>
+    <div className="relative overflow-hidden rounded-md backdrop-blur-md">
+      <SelectTrigger className="border-none bg-inherit">
+        {isPending && <div className="z-20">Loading...</div>}
+        {isError && <div className="text-red-500">Error</div>}
+        {isSuccess && (
+          <SelectValue placeholder="Select a city" className="z-20" />
+        )}
+      </SelectTrigger>
+      <div className="absolute bottom-0 left-0 right-0 top-0 -z-10 bg-neutral-50 opacity-80 dark:bg-neutral-800 dark:opacity-90"></div>
     </div>
   );
 }

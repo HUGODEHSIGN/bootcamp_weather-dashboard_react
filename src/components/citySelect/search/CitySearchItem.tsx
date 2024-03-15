@@ -1,5 +1,5 @@
-import { SelectItem } from '@/components/ui/select';
-import { City } from '@/types';
+import { SelectItem } from "@/components/ui/select";
+import { City } from "@/types";
 
 interface CitySearchItemProps {
   city: City;
@@ -7,8 +7,11 @@ interface CitySearchItemProps {
 
 export default function CitySearchItem({ city }: CitySearchItemProps) {
   return (
-    <SelectItem value={JSON.stringify(city)}>
-      {city.name + ' - ' + city.state}
+    <SelectItem
+      value={JSON.stringify(city)}
+      className="hover:bg-neutral-50 dark:hover:bg-neutral-700"
+    >
+      {city.name + " - " + city.state}
     </SelectItem>
   );
 }
