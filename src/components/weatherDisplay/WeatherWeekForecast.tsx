@@ -14,10 +14,10 @@ export default function WeatherWeekForecast({
 }: WeatherWeekForecastProps) {
   return (
     <div className="flex flex-col gap-2">
-      <h2 className="text-2xl md:text-3xl font-semibold z-10">
+      <h2 className="z-10 text-2xl font-semibold md:text-3xl">
         5 Day Forecast
       </h2>
-      <div className="flex flex-col lg:flex-row gap-2 mt-12">
+      <div className="mt-12 flex flex-col gap-2 lg:flex-row">
         {status === "success" &&
           weatherListGenerator(data).map((day) => (
             <WeatherCard data={day} key={JSON.stringify(day)} />
