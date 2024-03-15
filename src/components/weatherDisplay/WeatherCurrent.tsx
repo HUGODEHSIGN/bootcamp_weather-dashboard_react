@@ -4,12 +4,13 @@ import MainWeatherStatus from "@/components/weatherDisplay/MainWeatherStatus";
 import StatCard from "@/components/weatherDisplay/StatCard";
 import { currentCityAtom } from "@/state";
 import { List } from "@/types";
+import dayjs from "dayjs";
 import { useAtom } from "jotai";
 import Lottie from "lottie-react";
 import { Droplets, Thermometer, Wind } from "lucide-react";
 import { nanoid } from "nanoid";
+import dayTrainBackgroundAnimation from "../../../public/dayBackground.json";
 import spaceBackgroundAnimation from "../../../public/spaceBackground.json";
-
 interface WeatherCardProps {
   data: List;
   status: "success" | "pending" | "error";
@@ -17,6 +18,7 @@ interface WeatherCardProps {
 
 export default function WeatherCurrent({ data, status }: WeatherCardProps) {
   const [currentCity, _setCurrentCity] = useAtom(currentCityAtom);
+  const timeOfDay = Number(dayjs().format("HH"));
 
   const statCardData = [
     {
@@ -76,10 +78,19 @@ export default function WeatherCurrent({ data, status }: WeatherCardProps) {
         </div>
       </CardContent>
 
-      <Lottie
-        animationData={spaceBackgroundAnimation}
-        className="absolute bottom-0 left-0 right-0 origin-bottom scale-125"
-      />
+      {(timeOfDay < 7 || timeOfDay >= 19) && (
+        <Lottie
+          animationData={spaceBackgroundAnimation}
+          className="absolute bottom-0 left-0 right-0 origin-bottom scale-125 sm:scale-100"
+        />
+      )}
+
+      {timeOfDay >= 7 && timeOfDay < 19 && (
+        <Lottie
+          animationData={dayTrainBackgroundAnimation}
+          className="absolute bottom-0 left-0 right-0 origin-bottom scale-125 sm:scale-100"
+        />
+      )}
     </Card>
   );
 }
