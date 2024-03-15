@@ -24,7 +24,7 @@ export function CitySearchCombobox() {
   return (
     <div className="z-20">
       <Select
-        open={true}
+        open={open}
         onOpenChange={() => {
           setOpen(!open);
         }}
