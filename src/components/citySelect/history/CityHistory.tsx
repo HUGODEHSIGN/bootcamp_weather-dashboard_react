@@ -1,4 +1,5 @@
 import CityHistoryButton from '@/components/citySelect/history/CityHistoryButton';
+import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { cityHistoryAtom } from '@/state';
 import { useAtom } from 'jotai';
@@ -6,7 +7,7 @@ import { History } from 'lucide-react';
 import { nanoid } from 'nanoid';
 
 export default function CityHistory() {
-  const [cityHistory, _setCityHistory] = useAtom(cityHistoryAtom);
+  const [cityHistory, setCityHistory] = useAtom(cityHistoryAtom);
 
   return (
     <Card className="relative overflow-hidden backdrop-blur-3xl">
@@ -14,6 +15,7 @@ export default function CityHistory() {
         <CardTitle className='z-10 text-center'>History</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-2">
+        <Button className='z-10' variant='destructive' onClick={() => setCityHistory([])}>Clear History</Button>
         {cityHistory.map((city) => (
           <CityHistoryButton
             city={city}
